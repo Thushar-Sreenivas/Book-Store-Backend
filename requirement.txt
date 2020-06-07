@@ -1,0 +1,19 @@
+Please find the problem statement for your assignment:
+Design and implement an admin panel for a book store.
+
+1. * UI should list all books in the store. By default it should list in 
+    ascending the order of book title.
+   
+    There should also be an option to sort the books based on the price.
+
+2. * Provide an option option to filter the books of a particular category.
+
+3. * There should be a provision to add a new book.
+
+4.  Upon clicking on a list item (book), a detail page of the book should be displayed.
+    This should show all details like ISBN number, title, publisher, authors, category,
+    price, synopsis, stock count etc. of the book.
+
+5. * There should be an option to edit the details of the book in the book detail page.
+
+6. * The application should have REST endpoints.
