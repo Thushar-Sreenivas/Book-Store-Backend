@@ -13,6 +13,7 @@ const knex = require("knex")({
 exports.getBooks = (req, res) => {
   let sort = "book_title";
   if (req.query.cat && req.query.sort) {
+    sort = req.query.sort;
     knex
       .select("*")
       .from("book_detail")
@@ -68,7 +69,7 @@ exports.addNewBook = (req, res) => {
       synopsis: newBook.synopsis,
       stack_count: newBook.stack_count,
     })
-    .then((data) => res.send("Added New Book"))
+    .then((data) => res.send(newBook))
     .catch((err) => res.status(500).json("Database not accessible"));
 };
 exports.updateBook = (req, res) => {
@@ -86,7 +87,7 @@ exports.updateBook = (req, res) => {
       synopsis: newBook.synopsis,
       stack_count: newBook.stack_count,
     })
-    .then((data) => res.send("Updated"))
+    .then((data) => res.send(newBook))
     .catch((err) => res.status(400).json("Database not accessible"));
 };
 
