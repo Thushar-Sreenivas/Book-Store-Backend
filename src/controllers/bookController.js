@@ -9,38 +9,39 @@ const knex = require("knex")({
 });
 
 exports.getBooks = (req, res) => {
-  let sort = "book_title";
-  if (req.query.cat && req.query.sort) {
-    sort = req.query.sort;
-    knex
-      .select("*")
-      .from("book_detail")
-      .where("category", req.query.cat)
-      .orderBy(sort)
-      .then((data) => res.send(data))
-      .catch((err) => res.status(500).json("Database not accessible"));
-  } else if (req.query.sort) {
-    sort = req.query.sort;
-    knex
-      .select("*")
-      .from("book_detail")
-      .orderBy(sort)
-      .then((data) => res.send(data))
-      .catch((err) => res.status(500).json("Database not accessible"));
-  } else if (req.query.cat) {
-    knex
-      .select("*")
-      .from("book_detail")
-      .where("category", req.query.cat)
-      .then((data) => res.send(data))
-      .catch((err) => res.status(500).json("Database not accessible"));
-  } else
-    knex
-      .select("*")
-      .from("book_detail")
-      .orderBy(sort)
-      .then((data) => res.send(data))
-      .catch((err) => res.status(500).json("Database not accessible"));
+  // let sort = "book_title";
+  // if (req.query.cat && req.query.sort) {
+  //   sort = req.query.sort;
+  //   knex
+  //     .select("*")
+  //     .from("book_detail")
+  //     .where("category", req.query.cat)
+  //     .orderBy(sort)
+  //     .then((data) => res.send(data))
+  //     .catch((err) => res.status(500).json("Database not accessible"));
+  // } else if (req.query.sort) {
+  //   sort = req.query.sort;
+  //   knex
+  //     .select("*")
+  //     .from("book_detail")
+  //     .orderBy(sort)
+  //     .then((data) => res.send(data))
+  //     .catch((err) => res.status(500).json("Database not accessible"));
+  // } else if (req.query.cat) {
+  //   knex
+  //     .select("*")
+  //     .from("book_detail")
+  //     .where("category", req.query.cat)
+  //     .then((data) => res.send(data))
+  //     .catch((err) => res.status(500).json("Database not accessible"));
+  // } else
+  //   knex
+  //     .select("*")
+  //     .from("book_detail")
+  //     .orderBy(sort)
+  //     .then((data) => res.send(data))
+  //     .catch((err) => res.status(500).json("Database not accessible"));
+  res.send("Working");
 };
 
 exports.getBookByID = (req, res) => {
