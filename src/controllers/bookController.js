@@ -3,10 +3,8 @@ const express = require("express");
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: "postgresql-globular-73363",
-    user: "postgres",
-    password: "123",
-    database: "book_store",
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 
