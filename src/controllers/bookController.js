@@ -42,7 +42,6 @@ exports.getBooks = (req, res) => {
       .orderBy(sort)
       .then((data) => res.send(data))
       .catch((err) => res.status(500).json("Database not accessible"));
-  // res.send("Working");
 };
 
 exports.getBookByID = (req, res) => {
@@ -55,7 +54,6 @@ exports.getBookByID = (req, res) => {
 };
 
 exports.addNewBook = (req, res) => {
-  // console.log(JSON.stringify(req.body));
   const newBook = { ...req.body };
   console.log(newBook);
   knex("book_detail")
@@ -99,27 +97,4 @@ exports.deleteBook = (req, res) => {
     .catch((err) => res.status(400).json("Database not accessible"));
 };
 
-const value = [
-  {
-    ISBN: 1505573947,
-    book_title: "journey to the center of earth ",
-    author: "Jules Verne",
-    publisher: "Pierre-Jules Hetzel",
-    category: "Science Fiction",
-    price: "₹120.00",
-    synopsis:
-      "Journey to the Center of the Earth follows three adventurers who undertake a perilous expedition to the center of the earth. Professor Lidenbrock discovers a manuscript that reveals the location of a passage to the center of the earth.",
-    stack_count: 100,
-  },
-  {
-    ISBN: 62515675,
-    book_title: "The Monk Who Sold His Ferrari",
-    author: "Robin Sharma",
-    publisher: "Robin Sharma",
-    category: "Motivation",
-    price: "₹750.00",
-    synopsis:
-      "The Monk Who Sold His Ferrari is a self-help book by Robin Sharma, a writer and motivational speaker. The book is a business fable derived from Sharmas personal experiences after leaving his career as a litigation lawyer at the age of 25.",
-    stack_count: 150,
-  },
-];
+
