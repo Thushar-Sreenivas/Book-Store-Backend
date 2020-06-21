@@ -3,11 +3,9 @@ const bookRoute = require('./bookRoute')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.send("Routing Enabled hello")
+    res.send("Routing Enabled ")
 })
-router.get("/book", (req, res) => {
-  res.send("Book Enabled");
-});
-// router.use('/book', bookRoute)
+
+router.use('/book', bookRoute)
 
 module.exports = router
